@@ -1,25 +1,19 @@
-# README
+# The Hacking Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Week 4 - Thursday, the 25th of april : The Gossip Project 📰💰😎🌟💉💀💯
 
-Things you may want to cover:
 
-* Ruby version
+# Introduction
+Step to follow:
 
-* System dependencies
+Make a git clone: https://github.com/Frozenmouth/The_Gossip_Project
+Install gems: bundle install
 
-* Configuration
+# ⚠️ A l'attention des correcteurs qui vont checker mon projet demain matin ⚠️
+La version de Ruby que j'utilise (2.5.3) n'est pas la meme que celle utilisee par les moussaillons qui effectuent le parcours.
+Il se peut que la difference de version cree des incomptabilites et empeche la bonne execution de l'appli Rails.
+Mais pas de panique, voici une solution (un peu barbare, certes) pour y remedier :
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# The_Gossip_Project
+1) Modifiez la version de Ruby dans le Gemfile en fonction de celle que vous utilisez sur votre PC
+2) Supprimez le fichier Gemfile.lock
+3) Faites un `bundle install` dans le terminal : Normalement tout fonctionne ! (Methode deja testee et approuvee par tous mes precedents correcteurs les semaines precedentes haha)
