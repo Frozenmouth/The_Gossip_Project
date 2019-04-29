@@ -1,0 +1,18 @@
+<div class="container">
+<h1>Bienvenue sur notre site The Gossip Project !</h1>
+<p>Les potins les plus récents :</p>
+  <div class="card-deck">
+    <% Gossip.all.each_with_index do |potin, index|%>
+    <div class="col-3">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="card-title">Potin n° <%= potin.id %> de <%= link_to "#{potin.user.first_name}", user_path(potin.user.id) %></h3>
+          <h6 class="card-subtitle mb-2 text-muted"><%= potin.title %></h6>
+          <p class="card-text"><%= potin.content[0..50] %>...</p>
+          <%=  link_to "Voir plus", gossip_path(potin.id), :class => "card-link" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

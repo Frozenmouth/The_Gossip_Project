@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Profile de <%= "#{@current_user.first_name} #{@current_user.last_name}" %></h1>
+  <p>Âge : <%= @current_user.age %> ans</p>
+  <p><%= @current_user.description %></p>
+  <p>Ville : <%= @current_user.city.name %></p>
+  <a href="mailto:<%= @current_user.email %>?subject=message">Email-moi : <%= @current_user.email %></a>
+  <p>Membre depuis : <%= @current_user.created_at.asctime %></p>
+</div>

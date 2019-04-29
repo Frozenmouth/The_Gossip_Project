@@ -7,6 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+Tag.destroy_all
+Like.destroy_all
+PrivateMessage.destroy_all
+Tag.destroy_all
+Comment.destroy_all
+Gossip.destroy_all
+User.destroy_all
+City.destroy_all
+
 10.times do
   city = City.create(name: Faker::Address.city, postal_code: Faker::Address.zip_code)
 end
@@ -62,7 +71,7 @@ end
   subcomment = random_comment.comments.create(content: Faker::Lorem.sentences(1), gossip_id: random_comment.gossip_id, user_id: User.all.sample.id)
 end
 
-# Creation de 20 likes générés aléatoirement
+# Creation of 20 randomly generated likes
 20.times do
   random_user = User.all.sample
   x = Faker::Number.between(1, 2)

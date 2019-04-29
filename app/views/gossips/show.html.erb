@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">Potin n° <%= @current_gossip.id %> de <%= link_to "#{@current_gossip.user.first_name}", user_path(@current_gossip.user.id) %></h2>
+      <h6 class="card-subtitle mb-2 text-muted"><%= @current_gossip.title %></h6>
+      <p class="card-text"><%= @current_gossip.content %></p>
+      <p class="card-text"><em>Date de création : <%= @current_gossip.created_at.asctime %></em></p>
+    </div>
+  </div>
+</div>
