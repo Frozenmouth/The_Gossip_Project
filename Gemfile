@@ -62,6 +62,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'faker'
 gem 'rubocop', '~> 0.58.2'
+gem 'pg'
 
 group :development do
   gem "rails-erd"
