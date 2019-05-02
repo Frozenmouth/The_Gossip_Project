@@ -67,3 +67,5 @@ gem 'pg'
 group :development do
   gem "rails-erd"
 end
+
+gem 'bcrypt'

@@ -1,10 +1,64 @@
 <div class="container">
-  <div class="card">
-    <div class="card-body">
-      <h2 class="card-title">Potin n° <%= @current_gossip.id %> de <%= link_to "#{@current_gossip.user.first_name}", user_path(@current_gossip.user.id) %></h2>
-      <h6 class="card-subtitle mb-2 text-muted"><%= @current_gossip.title %></h6>
-      <p class="card-text"><%= @current_gossip.content %></p>
-      <p class="card-text"><em>Date de création : <%= @current_gossip.created_at.asctime %></em></p>
-    </div>
-  </div>
+	<div class="row">
+		<div class="col-6 mx-auto">
+
+			<!-- Gossip title -->
+			<h2 class="card-title text-center m-4">	<%= @gossip.title %></h2>
+
+			<div class="row justify-content-md-center mb-4">
+				<div class="col">
+					<div class="card">
+						<div class="card-body text-center">
+							<!-- Gossip content -->
+							<p class="card-title lead">	<%= @gossip.content %></p>
+							<!-- Gossip creation date -->
+							<small class="card-text text-muted"><%= @gossip.created_at %></small>
+							<!-- Gossip author-->
+						<p class="card-text text-muted">
+							Author : <%= link_to "#{@gossip.user.first_name} #{@gossip.user.last_name}", user_path(@gossip.user.id) %> (from <%= link_to @gossip.user.city.name, city_path(@gossip.user.city.id) %>)
+						</p>
+
+						<%= link_to "Edit gossip", edit_gossip_path, class: "btn btn-primary" %> <%= link_to "Delete gossip", gossip_path, data: {confirm: "Are you sure?"}, method: "delete", class: "btn btn-danger mb-0 ml-2" %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<h5 class="text-center">Comments</h5>
+
+		<!-- Form  -->
+		<%= form_tag gossip_comments_path(controller: :comments, action: :create, gossip_id: @gossip.id), method: "post" do %>
+
+		<%= label_tag 'Content' %>
+		<%= text_area_tag 'content', @comment.content, class: "form-control" %>
+		<br/>
+		
+		<%= submit_tag "Add comment", class: "btn btn-primary mb-5" %> 
+		<% end %>
+
+		<!-- Gets and display comments -->
+		<div class="list-group mx-auto">
+
+			<% @gossip.comments.reverse.each do |comment| %>
+
+			<div class="list-group-item mb-2">
+				<div class="row">
+					<div class="col-9">
+						<p class="mb-1"><%= comment.content %></p>
+
+						<!-- Displays name of the commenting user -->
+						<small>by <%= "#{comment.user.first_name} #{comment.user.last_name}" %>
+						</small>
+					</div>
+					<div class="col-3 text-right">
+						<small><%= link_to "Edit", edit_gossip_comment_path(@gossip.id, comment.id) %></small>
+					</div>
+				</div>
+			</div>
+
+			<% end %>
+		</div>
+
+	</div>
+</div>
 </div>
